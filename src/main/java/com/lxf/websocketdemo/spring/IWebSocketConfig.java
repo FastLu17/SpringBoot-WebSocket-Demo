@@ -33,7 +33,7 @@ public class IWebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
         //访问路径为：http:localhost:8080/webSocket、就会开启HandshakeInterceptor.
-        webSocketHandlerRegistry.addHandler(webSocketHandler(), "/webSocket").addInterceptors(new IWebSocketHandshakeInterceptor()).setAllowedOrigins("*");
+        webSocketHandlerRegistry.addHandler(webSocketHandler(), "/webSocket/*").addInterceptors(new IWebSocketHandshakeInterceptor()).setAllowedOrigins("*");
 
         //withSockJS() 方法声明我们想要使用 SockJS 功能,如果WebSocket不可用的话，会使用 SockJS;
         /*

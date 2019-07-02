@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
+ *
  * @author 小66
  * @create 2019-06-27 15:46
  **/
