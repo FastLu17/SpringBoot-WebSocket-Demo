@@ -1,4 +1,4 @@
-package com.lxf.websocketdemo.springboot.entity;
+package com.lxf.websocketdemo.oldVersion.entity;
 
 import lombok.Data;
 

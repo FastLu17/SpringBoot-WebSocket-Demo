@@ -1,7 +1,7 @@
-package com.lxf.websocketdemo.springboot.controller;
+package com.lxf.websocketdemo.oldVersion.controller;
 
-import com.lxf.websocketdemo.springboot.entity.WebUser;
-import com.lxf.websocketdemo.springboot.service.UserService;
+import com.lxf.websocketdemo.oldVersion.entity.WebUser;
+import com.lxf.websocketdemo.oldVersion.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,10 +25,11 @@ public class UserController {
     }
 
     @GetMapping("/add")
-    public String add(String userName, String password) {
+    public String add(String userName, String password,String id) {
         WebUser user = new WebUser();
         user.setPassword(password);
         user.setUserName(userName);
+        user.setId(Long.parseLong(id));
 
         WebUser addUser = userService.addUser(user);
 

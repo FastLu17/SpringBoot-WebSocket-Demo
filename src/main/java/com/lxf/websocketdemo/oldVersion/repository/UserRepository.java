@@ -1,6 +1,6 @@
-package com.lxf.websocketdemo.springboot.repository;
+package com.lxf.websocketdemo.oldVersion.repository;
 
-import com.lxf.websocketdemo.springboot.entity.WebUser;
+import com.lxf.websocketdemo.oldVersion.entity.WebUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

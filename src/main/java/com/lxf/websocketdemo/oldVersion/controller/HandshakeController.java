@@ -1,4 +1,4 @@
-package com.lxf.websocketdemo.springboot.controller;
+package com.lxf.websocketdemo.oldVersion.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +25,13 @@ public class HandshakeController {
     public String test2(Model model, @PathVariable(value = "userId") String userId) {
         model.addAttribute("userId", userId);
         return "web2";
+    }
+
+    @GetMapping("/web2/{userId}/{token}")
+    public String test3(Model model, @PathVariable(value = "userId") String userId,@PathVariable(value = "token") String token) {
+        model.addAttribute("userId", userId);
+        model.addAttribute("token", token);
+        return "web_token";
     }
 
     @GetMapping("/index")

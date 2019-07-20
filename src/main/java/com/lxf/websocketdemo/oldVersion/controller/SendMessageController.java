@@ -1,10 +1,9 @@
-package com.lxf.websocketdemo.springboot.controller;
+package com.lxf.websocketdemo.oldVersion.controller;
 
-import com.lxf.websocketdemo.springboot.endpoint.WebSocketServer;
-import com.lxf.websocketdemo.springboot.entity.WebMessage;
-import com.lxf.websocketdemo.springboot.repository.MessageRepository;
+import com.lxf.websocketdemo.oldVersion.endpoint.WebSocketServerEndpoint;
+import com.lxf.websocketdemo.oldVersion.entity.WebMessage;
+import com.lxf.websocketdemo.oldVersion.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,11 +28,11 @@ public class SendMessageController {
 
     @GetMapping("/send")
     public String method(){
-        CopyOnWriteArrayList<WebSocketServer> webSocketSet = WebSocketServer.webSocketSet;
+        CopyOnWriteArrayList<WebSocketServerEndpoint> webSocketSet = WebSocketServerEndpoint.webSocketSet;
 
         System.out.println("webSocketSet.size() = " + webSocketSet.size());
 
-        for (WebSocketServer server : webSocketSet) {
+        for (WebSocketServerEndpoint server : webSocketSet) {
             /*
                 如果不进行userId判断,则是进行消息群发(普通消息).
              */
