@@ -80,7 +80,12 @@ public class SocketClientEndpoint {
         }
     }
 
-    //启动客户端并建立链接
+    /**
+     *      启动客户端并建立新链接 (不会消息群发) -->只会发给userID和token对应的用户。
+     * @param userId
+     * @param token
+     * @return
+     */
     public boolean startByUserIdAndToken(String userId, String token) {
         try {
             Map<String, SocketServerEndpoint> container = SocketSessionStorage.get(userId);
@@ -93,6 +98,21 @@ public class SocketClientEndpoint {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    /**
+     * 群发消息方法。
+     *
+     * @param message
+     * @throws IOException
+     * @throws EncodeException
+     */
+    public void sendMessageAll(String message) throws IOException, EncodeException {
+        for (Map<String, SocketServerEndpoint> myWebSocket : SocketSessionStorage.getValues()) {
+            for (Map.Entry<String, SocketServerEndpoint> websocket : myWebSocket.entrySet()) {
+                websocket.getValue().sendMessage(message);
+            }
         }
     }
 }

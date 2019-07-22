@@ -24,11 +24,11 @@ public class SocketSessionStorage {
     /**
      * 当打开webSocket连接时、需要将session保存.
      *
-     * @param key
-     * @param myWebSocket
+     * @param key userId作为key、
+     * @param serverPointMap token作为serverPointMap的Key、SocketServerEndpoint作为serverPointMap的Value
      */
-    public static void put(String key, Map<String, SocketServerEndpoint> myWebSocket) {
-        webSocketMap.put(key, myWebSocket);
+    public static void put(String key, Map<String, SocketServerEndpoint> serverPointMap) {
+        webSocketMap.put(key, serverPointMap);
     }
 
     public static Map<String, SocketServerEndpoint> get(String key) {
